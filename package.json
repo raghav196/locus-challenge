@@ -4,7 +4,6 @@
   "description": "Locus Challenge",
   "main": "index.js",
   "scripts": {
-    //"prestart": "./node_modules/.bin/knex migrate:latest",
     "start": "node index.js",
     "test": "mocha test --recursive"
   },
