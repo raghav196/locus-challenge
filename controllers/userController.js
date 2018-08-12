@@ -197,9 +197,25 @@ const removeRoleFromUser = (req) => {
 	})
 };
 
+
+const getUserById = (req) => {
+	return P.try(() => {
+		return User.findUser(req.params.user_id);
+	}).then((user) => {
+		if(_.isEmpty(user)){
+			throw error._404('User not found');
+		}
+
+		return {
+			user: _.omit(user[0], ['password'])
+		};
+	});
+};
+
 module.exports = {
 	addUser: addUser,
 	login: login,
 	addRoleToUser,
-	removeRoleFromUser
+	removeRoleFromUser,
+	getUserById
 };

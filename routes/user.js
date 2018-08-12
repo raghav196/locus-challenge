@@ -42,9 +42,16 @@ module.exports = (router) => {
 		});
 	});
 
-	// router.get('/users', (req, res) => {
-	//
-	// });
+	router.get('/users/:user_id', (req, res) => {
+		return P.try(() => {
+			return userController.getUserById(req);
+		}).then((data) => {
+			return res.status(200).json({
+				success: true,
+				data: data
+			});
+		});
+	});
 
 	router.put('/users/:user_id/roles/:role_id/add', [authMiddleware.verifyToken], (req, res) => {
 		return P.try(() => {
