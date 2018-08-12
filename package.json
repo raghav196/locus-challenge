@@ -1,10 +1,12 @@
 {
-  "name": "hora",
+  "name": "locus",
   "version": "1.0.0",
-  "description": "Hora Challenge",
+  "description": "Locus Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    //"prestart": "./node_modules/.bin/knex migrate:latest",
+    "start": "node index.js",
+    "test": "mocha test --recursive"
   },
   "author": "Raghav Gupta",
   "license": "ISC",
